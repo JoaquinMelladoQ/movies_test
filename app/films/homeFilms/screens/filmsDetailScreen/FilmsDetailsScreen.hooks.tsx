@@ -11,8 +11,8 @@ export const useFilmsDetails = (filmChar: string[]) => {
     const fetchDetails = async () => {
       await Promise.all(
         filmChar.map(url => {
-          const id = extractIdFromUrl(url);
-          return fetchFilmDetail(id);
+          const id = extractIdFromUrl(url); // taking the id from url
+          return fetchFilmDetail(id); // request from store
         }),
       );
     };

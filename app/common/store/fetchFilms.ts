@@ -17,8 +17,8 @@ export const fetchFilms = async set => {
     } else {
       // add mocking data to the store
     }
-  } catch (error) {
-    console.error('Error fetching films:', error.message);
+  } catch (error: unknown) {
+    // showing an error screen
   } finally {
     set({loading: false});
   }

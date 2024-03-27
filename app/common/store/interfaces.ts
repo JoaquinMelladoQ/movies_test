@@ -10,7 +10,7 @@ export interface Film {
   characters: Character[];
 }
 
-interface FilmDetail {
+export interface FilmDetail {
   name: string;
   height: string;
   mass: string;

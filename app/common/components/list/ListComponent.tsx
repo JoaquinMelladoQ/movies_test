@@ -14,7 +14,7 @@ export const ListComponent: FC<FilmProps> = memo(({film, onNavigate}) => (
       <Text>Release Date: {formatDate(film.release_date)}</Text>
       <Text>Director: {film.director}</Text>
       <Text>Episode: {film.episode_id}</Text>
-      <Text>Resumen: {film.opening_crawl}</Text>
+      <Text>Resumen: {`\n"${film.opening_crawl}"`}</Text>
     </View>
   </Pressable>
 ));

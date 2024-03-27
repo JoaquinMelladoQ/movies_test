@@ -14,15 +14,14 @@ export const FilmsDetailsScreen = ({route, navigation}) => {
       reset(); // reset film characters
     });
 
-    return unsubscribe;
+    return unsubscribe; // cleanup
   }, [navigation, reset]);
 
   return (
     <View style={DetailsContainer.Overview}>
-      <View>
+      <View style={DetailsContainer.Introduction}>
         <Text>{itemId}</Text>
         <Text>{filmTitle}</Text>
-        <Text>Personajes: </Text>
       </View>
       {isLoadingDetail ? (
         <LoaderComponent />
@@ -30,11 +29,13 @@ export const FilmsDetailsScreen = ({route, navigation}) => {
         <FlatList
           data={characters}
           renderItem={({item}) => (
-            <View>
-              <Text>{item.name}</Text>
+            <View style={DetailsContainer.EveryItem}>
+              <Text>Nombre: {item.name}</Text>
+              <Text>Color de piel: {item.skin_color}</Text>
+              <Text>Color de ojos: {item.eye_color}</Text>
             </View>
           )}
-          keyExtractor={(item, index) => idGenerator(index.toString())}
+          keyExtractor={(_, index) => idGenerator(index.toString())}
         />
       )}
     </View>
