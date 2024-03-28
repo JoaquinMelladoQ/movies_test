@@ -22,21 +22,13 @@ Before you begin, ensure you meet the following requirements:
    ```bash
    git clone https://github.com/JoaquinMelladoQ/movies_test
    ```
-
-   ```bash
 2. cd movies_test
-   ```
-
-   ```bash
 3. npm install
-   ```
 
 ### Running Tests
 
 To execute a specific test, use the following command:
-```bash
-npx jest ./app/common/anytest
-```
+- npx jest ./app/common/anytest
 
 ### Built With
 - React Native - The framework used
