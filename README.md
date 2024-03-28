@@ -21,10 +21,10 @@ Before you begin, ensure you meet the following requirements:
 1. Clone the repository:
    ```bash
    git clone https://github.com/JoaquinMelladoQ/movies_test
-   ```
 
 2. cd movies_test
 3. npm install
+```
 
 ### Running Tests
 
