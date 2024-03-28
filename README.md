@@ -1,10 +1,8 @@
 # Movies CCU
 
-This project interfaces with a Star Wars film API, fetching a comprehensive list of films and storing them within a Zustand store for efficient state management. Each film is represented as a visually appealing card that displays key information, offering users a snapshot of the film's details directly from the main screen.
+This app taps into a Star Wars movie API, pulling all the movie info and keeping it neat in a Zustand store for easy access. Every movie pops up as a cool card showing the important bits, so you get the gist right from the start.
 
-Upon selecting a film card, users are navigated to a detailed screen which provides an in-depth look at the film's characters and planets. This detail view enriches the user experience by presenting a more detailed exploration of the Star Wars universe, right down to the intriguing characters and diverse planets featured in each film.
-
-Built with React Native and leveraging the power of Zustand for state management, the application offers a seamless and engaging way to browse through the iconic Star Wars filmography, making it a must-have for fans and enthusiasts eager to dive into the details of their favorite saga.
+Click on a movie, and boom—you're taken to a page loaded with details on characters and planets. It's a deep dive into the Star Wars world, from its unique characters to the vast planets in each movie.
 
 ## Getting Started
 
@@ -24,6 +22,10 @@ Before you begin, ensure you meet the following requirements:
    ```
 2. cd movies_test
 3. npm install
+4. cd ios/ pod install
+5. Open Xcode
+6. Select a Simulator (iPhone 13 pro was used)
+7. npm start
 
 ### Running Tests
 
