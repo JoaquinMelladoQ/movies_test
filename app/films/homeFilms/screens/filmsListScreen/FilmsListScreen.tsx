@@ -2,7 +2,7 @@ import React from 'react';
 import {SafeAreaView, FlatList} from 'react-native';
 import {FilmListStyles} from './FilmsList.presets';
 import {useFilmsList} from './FilmsListScreen.hooks';
-import {ListComponent} from '../../../../common/components/list/ListComponent';
+import {PressableCard} from '../../../../common/components/card/PressableCard';
 import {LoaderComponent} from '../../../../common/components/loader/LoaderComponent';
 
 export const FilmsListScreen = ({navigation}) => {
@@ -16,7 +16,7 @@ export const FilmsListScreen = ({navigation}) => {
       <FlatList
         data={films}
         renderItem={({item}) => (
-          <ListComponent film={item} onNavigate={navigateToFilmDetail} />
+          <PressableCard film={item} onNavigate={navigateToFilmDetail} />
         )}
         keyExtractor={item => item.episode_id.toString()}
       />

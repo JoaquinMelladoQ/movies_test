@@ -9,6 +9,7 @@ export const Path = {
   },
   PLANETS: {
     PLANET_LIST: '/planets',
+    PLANET_BY_ID: (id: string) => `/planet/${id}/`,
   },
   SPECIES: {
     SPECIES_LIST: '/species',

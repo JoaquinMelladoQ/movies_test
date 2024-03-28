@@ -1,13 +1,23 @@
 import React, {useEffect} from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {View, Text, SafeAreaView} from 'react-native';
 import {useFilmsDetails} from './FilmsDetailsScreen.hooks';
 import {LoaderComponent} from '../../../../common/components/loader/LoaderComponent';
 import {DetailsContainer} from './FilmsDetailsScreen.presets';
+import {ButtonPressable} from '../../../../common/components/button/ButtonPressable';
+import {FilmList} from '../../../../common/components/list/FilmList';
 
 export const FilmsDetailsScreen = ({route, navigation}) => {
-  const {itemId, filmTitle, filmChar} = route?.params;
-  const {characters, reset, idGenerator, isLoadingDetail} =
-    useFilmsDetails(filmChar);
+  const {filmTitle, filmChar, filmPlanet} = route?.params;
+  const {
+    characters,
+    reset,
+    idGenerator,
+    isLoadingDetail,
+    onChangeCharacters,
+    isCharacterVisible,
+    onChangePlanets,
+    isVisiblePlanet,
+  } = useFilmsDetails(filmChar, filmPlanet);
 
   useEffect(() => {
     const unsubscribe = navigation.addListener('beforeRemove', () => {
@@ -18,26 +28,40 @@ export const FilmsDetailsScreen = ({route, navigation}) => {
   }, [navigation, reset]);
 
   return (
-    <View style={DetailsContainer.Overview}>
+    <SafeAreaView style={DetailsContainer.Overview}>
       <View style={DetailsContainer.Introduction}>
-        <Text>{itemId}</Text>
-        <Text>{filmTitle}</Text>
+        <Text style={DetailsContainer.Text}>{filmTitle}</Text>
       </View>
       {isLoadingDetail ? (
         <LoaderComponent />
       ) : (
-        <FlatList
-          data={characters}
-          renderItem={({item}) => (
-            <View style={DetailsContainer.EveryItem}>
-              <Text>Nombre: {item.name}</Text>
-              <Text>Color de piel: {item.skin_color}</Text>
-              <Text>Color de ojos: {item.eye_color}</Text>
+        <>
+          <ButtonPressable
+            onPress={() => onChangeCharacters()}
+            isVisible={isCharacterVisible}
+            textVisible="Ocultar Personajes"
+            textInvisible="Ver Personajes"
+          />
+          {isCharacterVisible && (
+            <FilmList items={characters} idGenerator={idGenerator} />
+          )}
+          <ButtonPressable
+            onPress={() => onChangePlanets()}
+            isVisible={isVisiblePlanet}
+            textVisible="Ocultar Planetas"
+            textInvisible="Ver Planetas"
+          />
+          {isVisiblePlanet && (
+            <View>
+              {filmPlanet?.map((everyPlanet: string, index: number) => (
+                <View key={idGenerator(index.toString())}>
+                  <Text>{everyPlanet}</Text>
+                </View>
+              ))}
             </View>
           )}
-          keyExtractor={(_, index) => idGenerator(index.toString())}
-        />
+        </>
       )}
-    </View>
+    </SafeAreaView>
   );
 };

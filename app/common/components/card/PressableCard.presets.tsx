@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-export const ListComponentStyles = StyleSheet.create({
+export const PressableCardComponentStyles = StyleSheet.create({
   pressableContainer: {
     marginVertical: 5,
     alignItems: 'flex-start',

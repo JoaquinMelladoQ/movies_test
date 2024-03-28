@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {Path} from '../services/path';
 import DEFAULTS from '../utils/config';
-import {Character} from './interfaces';
+import {Character} from '../../films/models/Films';
 
 export const fetchFilmDetail = async (id: string, set, get) => {
   const currentCharacters = get().characters;

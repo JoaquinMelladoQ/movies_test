@@ -1,40 +1,13 @@
-export interface Character {
-  name: string;
-}
-
-export interface Film {
-  title: string;
-  episode_id: number;
-  director: string;
-  release_date: string;
-  characters: Character[];
-}
-
-export interface FilmDetail {
-  name: string;
-  height: string;
-  mass: string;
-  hair_color: string;
-  skin_color: string;
-  eye_color: string;
-  birth_year: string;
-  gender: 'male' | 'female' | 'n/a';
-  homeworld: string;
-  films: string[];
-  species: string[];
-  vehicles: string[];
-  starships: string[];
-  created: string;
-  edited: string;
-  url: string;
-}
+import {Film, FilmDetail, Planet} from '../../films/models/Films';
 
 export interface FilmsState {
   films: Film[];
   characters: {[id: string]: FilmDetail};
+  planets: {[id: string]: Planet};
   loading: boolean;
   setLoading: (isLoading: boolean) => void;
   fetchFilmDetail: (id: string) => Promise<void>;
   fetchFilms: () => Promise<void>;
   resetCharacters: () => void;
+  fetchFilmPlanet: (id: string) => Promise<void>;
 }
