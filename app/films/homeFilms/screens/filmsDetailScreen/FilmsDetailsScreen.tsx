@@ -51,6 +51,7 @@ export const FilmsDetailsScreen = ({route, navigation}) => {
             textVisible="Ocultar Planetas"
             textInvisible="Ver Planetas"
           />
+	  {/* TODO section */}
           {isVisiblePlanet && (
             <View>
               {filmPlanet?.map((everyPlanet: string, index: number) => (

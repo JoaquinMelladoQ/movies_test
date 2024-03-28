@@ -9,7 +9,6 @@ export const useFilmsList = (navigation: any) => {
     characters: Character[],
   ) => {
     const film = films.find(filmItem => filmItem.episode_id.toString() === id);
-
     if (!film) {
       // return an error screen
       return;
@@ -18,7 +17,7 @@ export const useFilmsList = (navigation: any) => {
       itemId: id,
       filmTitle: title,
       filmChar: characters,
-      filmPlanet: film.planets,
+      filmPlanet: film.planets, // TODO
     });
   };
   return {

@@ -8,10 +8,10 @@ export const useFilmsDetails = (filmChar: string[], filmPlanet: string[]) => {
     useFilmStore();
   const [isCharacterVisible, setCharacterVisibility] = useState<boolean>(false);
   const [isVisiblePlanet, setPlanetVisibility] = useState<boolean>(false);
-  const extractedPlanetdId = filmPlanet?.map((everyPlanet: string) =>
-    extractIdFromUrl(everyPlanet),
-  );
-  console.log('id', extractedPlanetdId);
+  // const extractedPlanetdId = filmPlanet?.map((everyPlanet: string) =>
+  //   extractIdFromUrl(everyPlanet),
+  //   // TODO: use the ID to make the planet's request
+  // );
   const onChangeCharacters = () => setCharacterVisibility(!isCharacterVisible);
   const onChangePlanets = () => setPlanetVisibility(!isVisiblePlanet);
   useEffect(() => {
